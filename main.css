@@ -25,9 +25,17 @@ main {
     gap: min(3rem, 20vw);
     position: relative;
 }
-main article{
+main .hero{
     align-self: flex-end;
     max-width: min(32rem, 100%);
+}
+main .popup-card {
+    display: block;
+    position: absolute;
+    width: min(24rem, 100%);
+    left: 50vw;
+    top: 50%;
+    transform: translate(-50%, -50%)
 }
 main table {
     max-width: min(64rem, 100%);
@@ -45,4 +53,7 @@ Custom styles
 }
 ::marker {
     content: "";
+}
+.popup-card {
+    visibility: hidden;
 }

@@ -26,6 +26,41 @@
             <button type="button" class="add-books">Add new book</button>
             <span><time class="clock" datetime="2022-10-16T18:00">16 October 2022 18:00</time></span>
         </article>
+        <article class="bookDetails popup-card">
+            <h3>New book detail</h3>
+            <form action="#">
+                <ul>
+                    <li>
+                        <label for="bookTitle">Title</label>
+                        <input type="text" name="bookTitle" id="bookTitle">
+                    </li>
+                    <li>
+                        <label for="bookAuthor">Author</label>
+                        <input type="text" name="bookAuthor" id="bookAuthor" list="usedWords" autocomplete>
+                    </li>
+                    <li>
+                        <label for="bookPageCount">Number of pages</label>
+                        <input type="number" name="bookPageCount" id="bookPageCount">
+                    </li>
+                    <li>
+                        <label for="bookStatus">Book status</label>
+                        <select name="bookStatus" id="bookStatus">
+                            <option value="Read">Read</option>
+                            <option value="Unread" selected>Not Read</option>
+                            <option value="Reading">Reading</option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="hidden" name="bookAdditionTimestamp" id="bookAdditionTimestamp" value="#">
+                        <input type="hidden" name="bookOwer" id="bookOwer" value="user">
+                    </li>
+                    <li>
+                        <button type="button">Save</button>
+                        <button type="button">Cancel</button>
+                    </li>
+                </ul>
+            </form>
+        </article>
         <table>
             <thead>
                 <tr>
