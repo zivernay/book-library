@@ -1,4 +1,5 @@
 const addBookButtons = document.querySelectorAll(".displayButton");
+const deleteBookButton = document.querySelector(".deleteBook");
 const libraryBooks = [];
 const saveBookButton = document.querySelector(".saveBook");
 
@@ -73,13 +74,59 @@ return:
 function addBookToShelf(bookProperties, index) {
     const bookShelf = document.querySelector("#bookShelf");
     const tableRow = document.createElement("tr");
-    tableRow.setAttribute(`data-bookID`, index);
+    const rm = document.createElement("td");
+    const btn = document.createElement("button");
+    btn.setAttribute('class', "deleteBook");
+    btn.setAttribute(`data-btn-id`, index);
+    btn.textContent = "delete";
+    btn.addEventListener("click", (e)=>{deleteBook(e.target)});
+    rm.appendChild(btn);
+    tableRow.setAttribute(`data-book-id`, index);
     for (let i = 0; i < 3; i++) {
         const td = document.createElement("td");
         td.textContent = bookProperties[i];
         tableRow.appendChild(td);
     }
+    tableRow.appendChild(rm)
     bookShelf.appendChild(tableRow);
+}
+
+/*
+Remove a book from the bookShelf row
+@params:
+    bookID: string
+return:
+    none
+*/
+function removeBookFromShelf(bookID) {
+    const book = document.querySelector(`[data-book-id="${bookID}"]`);
+    book.remove()
+}
+
+/*
+Get the index of the book object using a key
+@params:
+    bookID: string
+return:
+    index: number
+*/
+function getBookIndex(bookID) {
+    return parseInt(bookID)
+}
+
+/*
+Delete a book from the library
+@params:
+    none
+return:
+    none
+*/
+function deleteBook(btn) {
+    const bookID = btn.getAttribute('data-btn-id');
+    const index = getBookIndex(bookID);
+    const removedBook = libraryBooks.splice(index, 1);
+    removeBookFromShelf(bookID);
+    alert(`${removedBook.bookTitle} has been deleted`)
 }
 
 /*
