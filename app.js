@@ -108,7 +108,7 @@ return :
 function createDetailsElement(data, properties){
     const details = document.createElement("details");
     const summary = document.createElement("summary");
-    summary.textContent = 'Show more';
+    summary.textContent = '...';
     details.appendChild(summary);
     const propCount = data.length;
     for (let i = 3; i < propCount; i++) {
@@ -134,7 +134,7 @@ return:
     none
 */
 function addBookToShelf(bookProperties, index) {
-    const bookShelf = document.querySelector("#bookShelf");
+    const bookShelf = document.querySelector("#bookShelf tbody");
     const btn = createNewButton(index);
     const options = document.createElement("td");
     const rm = document.createElement("td");
