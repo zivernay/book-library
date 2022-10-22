@@ -30,7 +30,6 @@ header,
 
 main {
     flex-grow: 1;
-    gap: min(3rem, 20vw);
     position: relative;
 }
 main .hero{
@@ -101,6 +100,7 @@ Custom styles
     background: url(./img/geametry-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-inline: 0.5rem;
 }
 
 header {
@@ -110,11 +110,12 @@ header {
 header #profile-picture {
     height: 2em;
     border-radius: 50%;
-    box-shadow: var(--text-color-primary) 1px 0 1px 1px;
+    box-shadow: #d6197050 1px 0 1px 1px;
 }
 header .user-profile {
     font-size: 1.4rem;
     color: var(--text-color-secondary);
+    padding: 0.25rem;
 }
 header .menu-items > *:hover,
 .link {
@@ -133,6 +134,10 @@ main {
     background-image: url(./img/map-bg.svg);
     background-size: max(640px, 80%);
     background-repeat: no-repeat;
+}
+
+main .hero {
+    padding: 0.5rem;
 }
 
 .hero .quote {
@@ -168,4 +173,62 @@ main {
 }
 .popup-card.hidden {
     visibility: hidden;
+}
+
+main #bookShelf {
+    padding: 0.5rem;
+    max-width: 100%;
+}
+#bookShelf {
+    text-align: left;
+}
+table tr {
+    margin-bottom: 0.5rem;
+}
+table tr:nth-child(2n) {
+    background-color: #468dd308;
+}
+table tr:hover {
+    border: 5px solid pink;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 3px 2px #468dd3;
+    background-color: #000935;
+}
+table td {
+    vertical-align: top;
+    padding-inline-start: 0.5rem;
+    border-inline: 1px solid #468dd3;
+}
+table td:last-child {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+table td:first-child {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+tfoot td,
+small {
+    max-height: 1rem;
+}
+small {
+    font-size: 0.8rem;
+}
+table details {
+    position: relative;
+}
+details summary {
+    padding-left: 1.5rem;
+    cursor: pointer;
+}
+details summary::after,
+details[open] summary::after {
+    position: absolute;
+    content: "☟";
+    left: 0.25rem;
+    top: 0;
+    font-size: 100%;
+}
+details summary::after{
+    content: "☞";
 }
