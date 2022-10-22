@@ -64,6 +64,21 @@ function resetForm() {
 }
 
 /*
+Create delete button
+@params :
+    none
+return:
+    button element
+*/
+function createNewButton() {
+    const btn = document.createElement("button");
+    btn.setAttribute('class', "deleteBook");
+    btn.setAttribute(`data-btn-id`, index);
+    btn.textContent = "delete";
+    return btn
+}
+
+/*
 Display book properties to into the bookShelf table
 @params :
     bookProperties: array -> contain book properties as string
@@ -75,10 +90,7 @@ function addBookToShelf(bookProperties, index) {
     const bookShelf = document.querySelector("#bookShelf");
     const tableRow = document.createElement("tr");
     const rm = document.createElement("td");
-    const btn = document.createElement("button");
-    btn.setAttribute('class', "deleteBook");
-    btn.setAttribute(`data-btn-id`, index);
-    btn.textContent = "delete";
+    const btn = createNewButton();
     btn.addEventListener("click", (e)=>{deleteBook(e.target)});
     rm.appendChild(btn);
     tableRow.setAttribute(`data-book-id`, index);
