@@ -19,6 +19,7 @@ body {
     margin: 0;
     min-height: 100vh;
 }
+
 header,
 .user-profile,
 .menu-items {
@@ -79,18 +80,23 @@ footer {
 /*
 Custom styles
 */
-@font-face{
-    font-family: Raleway;
+/*@font-face{
+    font-family: "Raleway";
     src: url("./Raleway/Raleway-VariableFont_wght.ttf") format("ttf");
+}*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700&display=swap');
+
+::marker {
+    content: "";
 }
 
 :root {
     --bg-color: #000935;
     --text-color-primary: #fff;
     --text-color-secondary: #d61970;
-    font-family: Raleway, sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 300;
-    line-height: 2em;
+    line-height: 2;
     color: var(--text-color-primary);
     background: url(./img/geametry-bg.svg);
     background-repeat: no-repeat;
@@ -121,14 +127,38 @@ header .menu-items > *:hover,
 .link:active {
     color: #d61970;
 }
+
+
 main {
     background-image: url(./img/map-bg.svg);
     background-size: max(640px, 80%);
     background-repeat: no-repeat;
 }
-::marker {
-    content: "";
+
+.hero .quote {
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.5;
 }
+
+.hero button {
+    background-color: var(--text-color-secondary);
+    color: var(--text-color-primary);
+    font-weight: 400;
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    border: 2px outset var(--text-color-primary);
+}
+.hero .timestamp {
+    display: block;
+    font-size: 0.8rem;
+    padding: 1rem;
+    color: var(--text-color-secondary);
+    font-weight: 400;
+    text-align: right;
+}
+
 .popup-card {
     background-color: var(--bg-color);
     outline: 1px solid var(--text-color-secondary);
