@@ -182,24 +182,20 @@ main #bookShelf {
 #bookShelf {
     text-align: left;
 }
-table tr {
-    margin-bottom: 0.5rem;
-}
 table tr:nth-child(2n) {
     background-color: #468dd308;
 }
 table tr:hover {
-    border: 5px solid pink;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 3px 2px #468dd3;
+    box-shadow: 0 2px 3px 2px #468dd340;
     background-color: #000935;
 }
 table td {
     vertical-align: top;
     padding-inline-start: 0.5rem;
-    border-inline: 1px solid #468dd3;
+    border-left: 1px solid #468dd320;
 }
 table td:last-child {
+    border-right: 1px solid #468dd320;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
 }
@@ -207,8 +203,7 @@ table td:first-child {
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
 }
-tfoot td,
-small {
+tfoot td {
     max-height: 1rem;
 }
 small {
@@ -217,9 +212,18 @@ small {
 table details {
     position: relative;
 }
+
 details summary {
     padding-left: 1.5rem;
     cursor: pointer;
+}
+details[open] summary {
+    background-color: #468dd308;
+    border-bottom: 1px solid #468dd340;
+}
+details[open] summary ~ * {
+    font-size: 80%;
+    line-height: 1;
 }
 details summary::after,
 details[open] summary::after {
@@ -231,4 +235,10 @@ details[open] summary::after {
 }
 details summary::after{
     content: "☞";
+}
+
+footer {
+    padding:0 1rem;
+    background-color: #000935;
+    
 }
