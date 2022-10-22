@@ -1,6 +1,7 @@
 const addBookButtons = document.querySelectorAll(".displayButton");
 const deleteBookButton = document.querySelector(".deleteBook");
 const libraryBooks = [];
+const properties = ['title', 'authour', 'pages', 'status', 'created', 'owner']
 const saveBookButton = document.querySelector(".saveBook");
 
 //book constructor
@@ -66,16 +67,62 @@ function resetForm() {
 /*
 Create delete button
 @params :
-    none
+    {index: number}
 return:
     button element
 */
-function createNewButton() {
+function createNewButton(index) {
     const btn = document.createElement("button");
     btn.setAttribute('class', "deleteBook");
     btn.setAttribute(`data-btn-id`, index);
-    btn.textContent = "delete";
+    btn.textContent = "Delete";
     return btn
+}
+
+/*
+Create a table row to represent a book entry with basic book data
+@params :
+    {data: array}
+    {index: number} 
+return :
+    tablerow element
+*/
+function createTableRow(data, index) {
+    const tableRow = document.createElement("tr");
+    tableRow.setAttribute(`data-book-id`, index);
+    for (let i = 0; i < 3; i++) {
+        const td = document.createElement("td");
+        td.textContent = data[i];
+        tableRow.appendChild(td);
+    }
+    return tableRow
+}
+
+/*
+Creates a details element with extra book properties
+@params :
+    none
+return :
+    populated details element
+*/
+function createDetailsElement(data, properties){
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = 'Show more';
+    details.appendChild(summary);
+    const propCount = data.length;
+    for (let i = 3; i < propCount; i++) {
+        const propRow = document.createElement('div');
+        const prop = document.createElement("span");
+        const propValue = document.createElement("span");
+        prop.textContent = properties[i];
+        propValue.textContent = data[i];
+        propRow.appendChild(prop)
+        propRow.appendChild(propValue)
+        details.appendChild(propRow);
+
+    }
+    return details
 }
 
 /*
@@ -88,18 +135,16 @@ return:
 */
 function addBookToShelf(bookProperties, index) {
     const bookShelf = document.querySelector("#bookShelf");
-    const tableRow = document.createElement("tr");
+    const btn = createNewButton(index);
+    const options = document.createElement("td");
     const rm = document.createElement("td");
-    const btn = createNewButton();
+    const tableRow = createTableRow(bookProperties, index)
     btn.addEventListener("click", (e)=>{deleteBook(e.target)});
     rm.appendChild(btn);
-    tableRow.setAttribute(`data-book-id`, index);
-    for (let i = 0; i < 3; i++) {
-        const td = document.createElement("td");
-        td.textContent = bookProperties[i];
-        tableRow.appendChild(td);
-    }
-    tableRow.appendChild(rm)
+    const dtls = createDetailsElement(bookProperties, properties);
+    options.appendChild(dtls);
+    tableRow.appendChild(options);
+    tableRow.appendChild(rm);
     bookShelf.appendChild(tableRow);
 }
 
