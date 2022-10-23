@@ -138,6 +138,7 @@ function addBookToShelf(bookProperties, index) {
     const btn = createNewButton(index);
     const options = document.createElement("td");
     const rm = document.createElement("td");
+    rm.classList.add("hide");
     const tableRow = createTableRow(bookProperties, index)
     btn.addEventListener("click", (e)=>{deleteBook(e.target)});
     rm.appendChild(btn);
