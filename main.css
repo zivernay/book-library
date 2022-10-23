@@ -39,19 +39,45 @@ main .hero{
 main .popup-card {
     display: block;
     position: absolute;
-    width: 100%;
+    width: 80%;
     max-width: 32rem;
-    left: 50vw;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%)
+}
+.form-row {
+    margin-bottom: 1rem;
 }
 .form-row label {
     display: block;
 }
+[for="bookStatus"] {
+    display: inline-block;
+}
+table tr td:nth-child(3),
+table tr th:nth-child(3) {
+    display: none;
+}
+
 .form-row input,
 .form-row select {
     font-size: 100%;
     font-family: inherit;
+}
+.form-row input {
+    width: 100%;
+}
+
+.form-row-special button {
+    font-size: 100%;
+    padding-inline: 1rem;
+    width: 7rem;
+    border: 2px outset silver;
+    border-radius: 0.25em;
+}
+.form-row-special .saveBook {
+    background-color: #d61970;
+    margin-right: 0.5rem;
 }
 /*.form ul {
     display: flex;
@@ -65,16 +91,30 @@ main table {
 footer {
     flex-grow: 0;
 }
-@media screen and (min-width: 420px) {
-    .bookDetails .form-row {
+@media screen and (min-width: 540px) {
+    /*.bookDetails .form-row {
         display: grid;
         grid-template-columns: 10rem 1fr;
         justify-content: center;
         gap: 1rem;
-    }
-    .form-row >label:first-child {
+    }*/
+    .dataForm .form-row > * {
+        display: inline-block;
         text-align: right;
     }
+    .form-row > label {
+        width: 10rem;
+    }
+    .form-row > input {
+        width: calc(100% - 13rem);
+    }
+    .form-row-special {
+        margin-left: 10rem;
+    }
+    table tr td:nth-child(3),
+    table tr th:nth-child(3) {
+    display: table-cell;
+}
 }
 /*
 Custom styles
@@ -173,8 +213,11 @@ main .hero {
     border-radius: 1rem;
     padding: 1em;
 }
-.popup-card.hidden {
+.hidden {
     visibility: hidden;
+}
+.hide {
+    display: none;
 }
 
 main #bookShelf {
@@ -208,9 +251,7 @@ table td:first-child {
 tfoot td {
     max-height: 1rem;
 }
-small {
-    font-size: 0.8rem;
-}
+
 table details {
     position: relative;
 }
@@ -242,5 +283,7 @@ details summary::after{
 footer {
     padding:0 1rem;
     background-color: #000935;
-    
+}
+small {
+    font-size: 0.8rem;
 }

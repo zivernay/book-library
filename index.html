@@ -31,30 +31,30 @@
             <form action="#" class="dataForm">
                 <ul>
                     <li class="form-row">
-                        <label for="bookTitle">Title</label>
+                        <label for="bookTitle">Title: </label>
                         <input class="bookProperty" type="text" name="bookTitle" id="bookTitle">
                     </li>
                     <li class="form-row">
-                        <label for="bookAuthor">Author</label>
+                        <label for="bookAuthor">Author: </label>
                         <input class="bookProperty" type="text" name="bookAuthor" id="bookAuthor" list="usedWords" autocomplete>
                     </li>
                     <li class="form-row">
-                        <label for="bookPageCount">Number of pages</label>
+                        <label for="bookPageCount">Number of pages: </label>
                         <input class="bookProperty" type="number" name="bookPageCount" id="bookPageCount">
                     </li>
                     <li class="form-row">
-                        <label for="bookStatus">Book status</label>
+                        <label for="bookStatus">Book status: </label>
                         <select class="bookProperty" name="bookStatus" id="bookStatus">
                             <option value="Read">Read</option>
                             <option value="Unread" selected>Not Read</option>
                             <option value="Reading">Reading</option>
                         </select>
                     </li>
-                    <li class="form-row">
+                    <li class="hide">
                         <input class="bookProperty" type="hidden" name="bookAdditionTimestamp" id="bookAdditionTimestamp" value="#">
                         <input class="bookProperty" type="hidden" name="bookOwner" id="bookOwner" value="user">
                     </li>
-                    <li class="form-row-special">
+                    <li class="form-row-special"> 
                         <button class="saveBook" type="button">Save</button>
                         <button class="displayButton" type="button">Cancel</button>
                     </li>
