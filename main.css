@@ -100,10 +100,10 @@ footer {
     }*/
     .dataForm .form-row > * {
         display: inline-block;
-        text-align: right;
     }
     .form-row > label {
         width: 10rem;
+        text-align: right;
     }
     .form-row > input {
         width: calc(100% - 13rem);
@@ -279,6 +279,25 @@ details[open] summary::after {
 details summary::after{
     content: "☞";
 }
+details div span:first-child {
+    display: inline-block;
+    font-weight: 200;
+    color: #468dd380;
+    width: 4em;
+    font-size: 75%;
+    line-height: 1.8;
+    padding-inline-end: 0.5em;
+    text-align: right;
+    border-right: 1px solid #d61970;
+}
+details div span:last-child {
+    font-weight: 400;
+    padding-inline-start: 0.25em;
+}
+details div {
+    border-block: 2px solid transparent;
+}
+
 td.hide {
     display: none;
 
