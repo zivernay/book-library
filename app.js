@@ -5,18 +5,21 @@ const properties = ['title', 'authour', 'pages', 'status', 'created', 'owner']
 const saveBookButton = document.querySelector(".saveBook");
 
 //book constructor
-function Book(bookTitle,
-    bookAuthor,
-    bookPageCount,
-    bookStatus,
-    bookAdditionTimestamp,
-    bookOwner,) {
+class Book {
+    constructor (bookTitle,
+                bookAuthor,
+                bookPageCount,
+                bookStatus,
+                bookAdditionTimestamp,
+                bookOwner,
+                ) {
         this.bookTitle = (bookTitle)? bookTitle : "Unknown";
         this.bookAuthor = (bookAuthor)? bookAuthor : "Unknown";
         this.bookPageCount = (bookPageCount)? bookPageCount : null;
         this.bookStatus = (bookStatus)? bookStatus : "Unread";
         this.bookAdditionTimestamp = (bookAdditionTimestamp)? bookAdditionTimestamp : null;
         this.bookOwner = (bookOwner)? bookOwner : "Unknown";
+    }
 }
 
 /*
